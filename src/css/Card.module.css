@@ -22,3 +22,16 @@
 .card img {
   width: 10rem;
 }
+
+.computer {
+  border-color: var(--orange);
+}
+
+.computer h1,
+.computer p {
+  color: var(--orange);
+}
+
+.lose {
+  opacity: 0.4;
+}

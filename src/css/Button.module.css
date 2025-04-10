@@ -17,3 +17,19 @@
 .button span {
   writing-mode: vertical-lr;
 }
+
+.sicssors {
+  border-left: 3px solid var(--green);
+}
+
+.rock {
+  border-left: 3px solid var(--blue-200);
+}
+
+.paper {
+  border-left: 3px solid var(--yellow);
+}
+
+.disabled {
+  cursor: not-allowed;
+}

@@ -1,22 +1,25 @@
 import React from "react";
-import { choice } from "../App.jsx";
 import styles from "../css/Button.module.css";
+import { choiceImgs, choices } from "../utils/constant.js";
 
-const btnStyle = {
-  cursor: "not-allowed",
+const classNames = {
+  [choices.PAPER]: "paper",
+  [choices.ROCK]: "rock",
+  [choices.SICSSORS]: "sicssors",
 };
 
-function Button({ type, className, onClick, disabled }) {
+function Button({ choice, onClick, disabled }) {
+  const className = classNames[choice];
+
   return (
     <button
-      style={disabled ? btnStyle : undefined}
       type="button"
-      className={`${styles.button} ${className}`}
+      className={`${styles.button} ${styles[className]} ${disabled && styles.disabled}`}
       disabled={disabled}
       onClick={onClick}
     >
-      <img src={choice[type].src} alt={choice[type].caption} />
-      <span>{choice[type].caption}</span>
+      <img src={choiceImgs[choice]} alt={choice} />
+      <span>{choice}</span>
     </button>
   );
 }

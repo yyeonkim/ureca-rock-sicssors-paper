@@ -1,23 +1,13 @@
 import { useState } from "react";
-import paperImg from "./assets/paper.png";
-import rockImg from "./assets/rock.png";
-import sicssorsImg from "./assets/scissors.png";
 import Button from "./components/Button.jsx";
 import Card from "./components/Card.jsx";
 import styles from "./css/App.module.css";
-
-const types = { ROCK: "ROCK", SICSSORS: "SICSSORS", PAPER: "PAPER" };
-
-export const choice = {
-  ROCK: { src: rockImg, caption: "주먹" },
-  SICSSORS: { src: sicssorsImg, caption: "가위" },
-  PAPER: { src: paperImg, caption: "보" },
-};
+import { choices, results } from "./utils/constant.js";
 
 function App() {
   const [userChoice, setUserChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
-  const [result, setResult] = useState([null, null]); // 이겼다, 졌다, 비겼다
+  const [result, setResult] = useState([null, null]); // [사용자, 컴퓨터]
 
   const play = (type) => {
     const com = generateComputerChoice();
@@ -28,26 +18,26 @@ function App() {
 
   const generateComputerChoice = () => {
     const index = Math.floor(Math.random() * 3);
-    return Object.values(types)[index];
+    return Object.values(choices)[index];
   };
 
   const determineWinner = (user, com) => {
     switch (user) {
-      case types.PAPER:
-        if (com === types.PAPER) return ["비겼다", "비겼다"];
-        if (com === types.ROCK) return ["이겼다", "졌다"];
-        if (com === types.SICSSORS) return ["졌다", "이겼다"];
+      case choices.PAPER:
+        if (com === choices.PAPER) return [results.DRAW, results.DRAW];
+        if (com === choices.ROCK) return [results.WIN, results.LOSE];
+        if (com === choices.SICSSORS) return [results.LOSE, results.WIN];
         break;
-      case types.SICSSORS:
-        if (com === types.PAPER) return ["이겼다", "졌다"];
-        if (com === types.ROCK) return ["졌다", "이겼다"];
-        if (com === types.SICSSORS) return ["비겼다", "비겼다"];
+      case choices.SICSSORS:
+        if (com === choices.PAPER) return [results.WIN, results.LOSE];
+        if (com === choices.ROCK) return [results.LOSE, results.WIN];
+        if (com === choices.SICSSORS) return [results.DRAW, results.DRAW];
         break;
       // ROCK
       default:
-        if (com === types.PAPER) return ["졌다", "이겼다"];
-        if (com === types.ROCK) return ["비겼다", "비겼다"];
-        if (com === types.SICSSORS) return ["이겼다", "졌다"];
+        if (com === choices.PAPER) return [results.LOSE, results.WIN];
+        if (com === choices.ROCK) return [results.DRAW, results.DRAW];
+        if (com === choices.SICSSORS) return [results.WIN, results.LOSE];
     }
   };
 
@@ -64,44 +54,41 @@ function App() {
       </header>
 
       <main className={styles.mw}>
-        <Card type={userChoice} result={result[0]} />
+        <Card choice={userChoice} result={result[0]} />
         <section className={styles.buttons}>
           <div>
             <Button
-              className="sicssors-btn"
-              type={types.SICSSORS}
+              choice={choices.SICSSORS}
               disabled={userChoice}
               onClick={() => {
-                play(types.SICSSORS);
+                play(choices.SICSSORS);
               }}
             />
             <Button
-              className="rock-btn"
-              type={types.ROCK}
+              choice={choices.ROCK}
               disabled={userChoice}
               onClick={() => {
-                play(types.ROCK);
+                play(choices.ROCK);
               }}
             />
             <Button
-              className="paper-btn"
-              type={types.PAPER}
+              choice={choices.PAPER}
               disabled={userChoice}
               onClick={() => {
-                play(types.PAPER);
+                play(choices.PAPER);
               }}
             />
           </div>
+          {/* 결과 */}
           <p className={styles.result}>{result[0] ? result[0] : "?"}</p>
-
-          {/* 플레이 후에만 표시 */}
+          {/* 다시하기 버튼: 플레이 후에만 표시 */}
           {userChoice && (
             <button type="button" onClick={init}>
               다시하기
             </button>
           )}
         </section>
-        <Card isComputer type={computerChoice} result={result[1]} />
+        <Card isComputer choice={computerChoice} result={result[1]} />
       </main>
 
       <footer>
