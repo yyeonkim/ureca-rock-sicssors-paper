@@ -62,31 +62,3 @@ footer p {
   font-size: 1.4rem;
   color: gray;
 }
-
-.sicssors-btn {
-  border-left: 3px solid var(--green);
-}
-
-.rock-btn {
-  border-left: 3px solid var(--blue-200);
-}
-
-.paper-btn {
-  border-left: 3px solid var(--yellow);
-}
-
-.computer-card {
-  border-color: var(--orange);
-}
-
-.computer-card h1 {
-  color: var(--orange);
-}
-
-.computer-card p {
-  color: var(--orange);
-}
-
-.lose-card {
-  opacity: 0.4;
-}

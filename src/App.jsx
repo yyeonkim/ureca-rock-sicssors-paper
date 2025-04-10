@@ -58,7 +58,6 @@ function App() {
         <section className={styles.buttons}>
           <div>
             <Button
-              className="sicssors-btn"
               choice={choices.SICSSORS}
               disabled={userChoice}
               onClick={() => {
@@ -66,7 +65,6 @@ function App() {
               }}
             />
             <Button
-              className="rock-btn"
               choice={choices.ROCK}
               disabled={userChoice}
               onClick={() => {
@@ -74,7 +72,6 @@ function App() {
               }}
             />
             <Button
-              className="paper-btn"
               choice={choices.PAPER}
               disabled={userChoice}
               onClick={() => {
@@ -82,9 +79,9 @@ function App() {
               }}
             />
           </div>
+          {/* 결과 */}
           <p className={styles.result}>{result[0] ? result[0] : "?"}</p>
-
-          {/* 플레이 후에만 표시 */}
+          {/* 다시하기 버튼: 플레이 후에만 표시 */}
           {userChoice && (
             <button type="button" onClick={init}>
               다시하기
