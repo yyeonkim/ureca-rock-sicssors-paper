@@ -5,7 +5,7 @@ import { choiceImgs, choices } from "../utils/constant.js";
 const classNames = {
   [choices.PAPER]: "paper",
   [choices.ROCK]: "rock",
-  [choices.SICSSORS]: "sicssors",
+  [choices.SCISSORS]: "scissors",
 };
 
 function Button({ choice, onClick, disabled }) {
