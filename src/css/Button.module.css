@@ -1,13 +1,12 @@
 .button {
   display: flex;
   align-items: center;
-
   gap: 0.4rem;
   border: 1px solid var(--neutral-50);
-  background-color: transparent;
   border-radius: 1.6rem;
   padding: 0.8rem 1.2rem;
   border-left: 3px solid var(--green);
+  cursor: pointer;
 }
 
 .button img {

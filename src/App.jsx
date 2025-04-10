@@ -10,12 +10,14 @@ function App() {
       </header>
       <main className={styles.mw}>
         <Card />
-        <section>
-          <Button />
-          <Button />
-          <Button />
-          <p>결과</p>
-          <button>다시하기</button>
+        <section className={styles.buttons}>
+          <div>
+            <Button />
+            <Button />
+            <Button />
+          </div>
+          <p className={styles.result}>?</p>
+          <button type="button">다시하기</button>
         </section>
         <Card />
       </main>

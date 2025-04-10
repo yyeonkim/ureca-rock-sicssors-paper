@@ -4,9 +4,10 @@
 
 :root {
   --blue-100: #247dc1;
+  --blue-200: #678dc3;
+  --blue-300: #3684f2;
   --orange: #ca661f;
   --green: #7ac89e;
-  --blue-200: #678dc3;
   --yellow: #d7b15f;
   --neutral-100: #f3f5f7;
   --neutral-50: #e1e2e5;
@@ -27,6 +28,11 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
 }
 
 header,
