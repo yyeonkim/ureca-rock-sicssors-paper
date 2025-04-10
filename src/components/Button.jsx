@@ -1,12 +1,12 @@
 import React from "react";
-import scissors from "../assets/scissors.png";
 import styles from "../css/Button.module.css";
+import { choice } from "./Card.jsx";
 
-function Button() {
+function Button({ type, className }) {
   return (
-    <button type="button" className={styles.button}>
-      <img src={scissors} alt="가위" />
-      <span>가위</span>
+    <button type="button" className={`${styles.button} ${className}`}>
+      <img src={choice[type].src} alt={choice[type].caption} />
+      <span>{choice[type].caption}</span>
     </button>
   );
 }
