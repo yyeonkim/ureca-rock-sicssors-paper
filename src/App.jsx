@@ -9,6 +9,8 @@ function App() {
   const [computerChoice, setComputerChoice] = useState(null);
   const [result, setResult] = useState([null, null]); // [사용자, 컴퓨터]
 
+  const [userResult, computerResult] = result;
+
   const play = (choice) => {
     const com = generateComputerChoice();
     setUserChoice(choice);
@@ -48,8 +50,8 @@ function App() {
 
       <main className={styles.mw}>
         {/* 가위바위보 카드 */}
-        <Card type="user" choice={userChoice} result={result[0]} />
-        <Card type="computer" choice={computerChoice} result={result[1]} />
+        <Card type="user" choice={userChoice} result={userResult} />
+        <Card type="computer" choice={computerChoice} result={computerResult} />
 
         <section className={styles.buttons}>
           {/* 가위바위보 버튼 */}
@@ -65,7 +67,7 @@ function App() {
             ))}
           </div>
           {/* 결과 */}
-          <p className={styles.result}>{result[0] ? result[0] : "?"}</p>
+          <p className={styles.result}>{userResult ? userResult : "?"}</p>
           {/* 다시하기: 플레이 후에만 표시 */}
           {userChoice && (
             <button type="button" onClick={init}>
