@@ -22,22 +22,15 @@ function App() {
   };
 
   const determineWinner = (user, com) => {
-    switch (user) {
-      case choices.PAPER:
-        if (com === choices.PAPER) return [results.DRAW, results.DRAW];
-        if (com === choices.ROCK) return [results.WIN, results.LOSE];
-        if (com === choices.SICSSORS) return [results.LOSE, results.WIN];
-        break;
-      case choices.SICSSORS:
-        if (com === choices.PAPER) return [results.WIN, results.LOSE];
-        if (com === choices.ROCK) return [results.LOSE, results.WIN];
-        if (com === choices.SICSSORS) return [results.DRAW, results.DRAW];
-        break;
-      // ROCK
-      default:
-        if (com === choices.PAPER) return [results.LOSE, results.WIN];
-        if (com === choices.ROCK) return [results.DRAW, results.DRAW];
-        if (com === choices.SICSSORS) return [results.WIN, results.LOSE];
+    if (user === com) return [results.DRAW, results.DRAW];
+    else if (
+      (user === choices.PAPER && com === choices.ROCK) ||
+      (user === choices.SICSSORS && com === choices.PAPER) ||
+      (user === choices.ROCK && com === choices.SICSSORS)
+    ) {
+      return [results.WIN, results.LOSE];
+    } else {
+      return [results.LOSE, results.WIN];
     }
   };
 
