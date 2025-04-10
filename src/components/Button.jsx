@@ -1,12 +1,12 @@
 import React from "react";
-import { choice } from "../App.jsx";
 import styles from "../css/Button.module.css";
+import { choiceImgs } from "../utils/constant.js";
 
 const btnStyle = {
   cursor: "not-allowed",
 };
 
-function Button({ type, className, onClick, disabled }) {
+function Button({ choice, className, onClick, disabled }) {
   return (
     <button
       style={disabled ? btnStyle : undefined}
@@ -15,8 +15,8 @@ function Button({ type, className, onClick, disabled }) {
       disabled={disabled}
       onClick={onClick}
     >
-      <img src={choice[type].src} alt={choice[type].caption} />
-      <span>{choice[type].caption}</span>
+      <img src={choiceImgs[choice]} alt={choice} />
+      <span>{choice}</span>
     </button>
   );
 }

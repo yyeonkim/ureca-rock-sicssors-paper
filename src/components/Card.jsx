@@ -1,9 +1,9 @@
 import React from "react";
-import { choice } from "../App.jsx";
 import questionMark from "../assets/questionmark.png";
 import styles from "../css/Card.module.css";
+import { choiceImgs } from "../utils/constant.js";
 
-function Card({ type, isComputer, result }) {
+function Card({ choice, isComputer, result }) {
   const cardStyle = {
     backgroundColor: isComputer ? "rgba(202, 102, 31, .2)" : "rgba(36, 125, 193, .2)",
   };
@@ -12,7 +12,7 @@ function Card({ type, isComputer, result }) {
   return (
     <div className={className} style={result ? cardStyle : undefined}>
       <h1>{isComputer ? "상대선수" : "너님"}</h1>
-      <img src={type ? choice[type].src : questionMark} alt={type ? choice[type].caption : "미정"} />
+      <img src={choice ? choiceImgs[choice] : questionMark} alt={choice ? choice : "미정"} />
       <p>{result ? result : "선택하세요"}</p>
     </div>
   );
