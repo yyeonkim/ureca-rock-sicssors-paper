@@ -56,7 +56,6 @@
 3. **상태 전달**
    - App에서 Card 컴포넌트로 props 전달: userTitle, choice, result, type
    - App에서 Button 컴포넌트로 props 전달: onClick, choice, (disabled)
-   ***
 
 ## **UI 구성**
 
