@@ -58,6 +58,7 @@ function App() {
           <div>
             {Object.values(choices).map((value) => (
               <Button
+                key={value}
                 choice={value}
                 disabled={userChoice}
                 onClick={() => {
