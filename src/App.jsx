@@ -8,6 +8,7 @@ function App() {
       <header>
         <h1>가위바위보 게임</h1>
       </header>
+
       <main className={styles.mw}>
         <Card />
         <section className={styles.buttons}>
@@ -21,6 +22,7 @@ function App() {
         </section>
         <Card />
       </main>
+
       <footer>
         <p>
           버튼을 클릭하여 가위, 바위, 보 중 하나를 선택하세요.
