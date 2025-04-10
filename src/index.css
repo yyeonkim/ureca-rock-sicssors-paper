@@ -86,3 +86,7 @@ footer p {
 .computer-card p {
   color: var(--orange);
 }
+
+.lose-card {
+  opacity: 0.4;
+}

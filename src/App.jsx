@@ -1,9 +1,18 @@
 import { useState } from "react";
+import paperImg from "./assets/paper.png";
+import rockImg from "./assets/rock.png";
+import sicssorsImg from "./assets/scissors.png";
 import Button from "./components/Button.jsx";
 import Card from "./components/Card.jsx";
 import styles from "./css/App.module.css";
 
 const types = { ROCK: "ROCK", SICSSORS: "SICSSORS", PAPER: "PAPER" };
+
+export const choice = {
+  ROCK: { src: rockImg, caption: "주먹" },
+  SICSSORS: { src: sicssorsImg, caption: "가위" },
+  PAPER: { src: paperImg, caption: "보" },
+};
 
 function App() {
   const [userChoice, setUserChoice] = useState(null);
@@ -11,11 +20,10 @@ function App() {
   const [result, setResult] = useState([null, null]); // 이겼다, 졌다, 비겼다
 
   const play = (type) => {
-    const user = type;
     const com = generateComputerChoice();
-    setUserChoice(user);
+    setUserChoice(type);
     setComputerChoice(com);
-    setResult(determineWinner(user, com));
+    setResult(determineWinner(type, com));
   };
 
   const generateComputerChoice = () => {
@@ -85,6 +93,8 @@ function App() {
             />
           </div>
           <p className={styles.result}>{result[0] ? result[0] : "?"}</p>
+
+          {/* 플레이 후에만 표시 */}
           {userChoice && (
             <button type="button" onClick={init}>
               다시하기

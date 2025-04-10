@@ -1,6 +1,6 @@
 import React from "react";
+import { choice } from "../App.jsx";
 import styles from "../css/Button.module.css";
-import { choice } from "./Card.jsx";
 
 const btnStyle = {
   cursor: "not-allowed",
