@@ -1,3 +1,4 @@
+import Button from "./components/Button.jsx";
 import Card from "./components/Card.jsx";
 import styles from "./css/App.module.css";
 
@@ -10,7 +11,9 @@ function App() {
       <main className={styles.mw}>
         <Card />
         <section>
-          <div>버튼들</div>
+          <Button />
+          <Button />
+          <Button />
           <p>결과</p>
           <button>다시하기</button>
         </section>
