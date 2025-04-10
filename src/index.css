@@ -3,6 +3,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..700&display=swap");
 
 :root {
+  --blue-100: #247dc1;
+  --orange: #ca661f;
+  --green: #7ac89e;
+  --blue-200: #678dc3;
+  --yellow: #d7b15f;
+  --neutral-100: #f3f5f7;
+
   font-size: 10px;
   box-sizing: border-box;
 }
@@ -13,6 +20,7 @@
 
 body {
   font-size: 1.6rem;
+  background-color: var(--neutral-100);
 }
 
 a {
@@ -25,13 +33,12 @@ footer {
   text-align: center;
 }
 
+header h1 {
+  font-weight: 700;
+  font-size: 4rem;
+}
+
 main {
   display: flex;
   justify-content: center;
-}
-
-.mw {
-  max-width: 768px;
-  margin: 0 auto;
-  width: calc(100% - var(--gap-32));
 }
