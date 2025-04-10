@@ -9,11 +9,11 @@ function App() {
   const [computerChoice, setComputerChoice] = useState(null);
   const [result, setResult] = useState([null, null]); // [사용자, 컴퓨터]
 
-  const play = (type) => {
+  const play = (choice) => {
     const com = generateComputerChoice();
-    setUserChoice(type);
+    setUserChoice(choice);
     setComputerChoice(com);
-    setResult(determineWinner(type, com));
+    setResult(determineWinner(choice, com));
   };
 
   const generateComputerChoice = () => {
@@ -54,41 +54,32 @@ function App() {
       </header>
 
       <main className={styles.mw}>
-        <Card choice={userChoice} result={result[0]} />
+        {/* 가위바위보 카드 */}
+        <Card type="user" choice={userChoice} result={result[0]} />
+        <Card type="computer" choice={computerChoice} result={result[1]} />
+
         <section className={styles.buttons}>
+          {/* 가위바위보 버튼 */}
           <div>
-            <Button
-              choice={choices.SICSSORS}
-              disabled={userChoice}
-              onClick={() => {
-                play(choices.SICSSORS);
-              }}
-            />
-            <Button
-              choice={choices.ROCK}
-              disabled={userChoice}
-              onClick={() => {
-                play(choices.ROCK);
-              }}
-            />
-            <Button
-              choice={choices.PAPER}
-              disabled={userChoice}
-              onClick={() => {
-                play(choices.PAPER);
-              }}
-            />
+            {Object.values(choices).map((value) => (
+              <Button
+                choice={value}
+                disabled={userChoice}
+                onClick={() => {
+                  play(value);
+                }}
+              />
+            ))}
           </div>
           {/* 결과 */}
           <p className={styles.result}>{result[0] ? result[0] : "?"}</p>
-          {/* 다시하기 버튼: 플레이 후에만 표시 */}
+          {/* 다시하기: 플레이 후에만 표시 */}
           {userChoice && (
             <button type="button" onClick={init}>
               다시하기
             </button>
           )}
         </section>
-        <Card isComputer choice={computerChoice} result={result[1]} />
       </main>
 
       <footer>

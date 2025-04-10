@@ -25,6 +25,7 @@
 
 .computer {
   border-color: var(--orange);
+  order: 3;
 }
 
 .computer h1,
