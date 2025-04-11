@@ -27,8 +27,8 @@ function App() {
     if (user === com) return [results.DRAW, results.DRAW];
     else if (
       (user === choices.PAPER && com === choices.ROCK) ||
-      (user === choices.SICSSORS && com === choices.PAPER) ||
-      (user === choices.ROCK && com === choices.SICSSORS)
+      (user === choices.SCISSORS && com === choices.PAPER) ||
+      (user === choices.ROCK && com === choices.SCISSORS)
     ) {
       return [results.WIN, results.LOSE];
     } else {
